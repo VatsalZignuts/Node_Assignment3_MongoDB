@@ -1,0 +1,70 @@
+// Department
+
+db.Department.insert({
+ 'id' : 1, 
+ 'name' : 'vatsal'
+})
+
+// Employee
+
+db.Employee.insert({
+ 'id' : 1, 
+ 'name' : 'vatsal',
+ 'empno' : 01,
+ 'depno' : 1,
+ 'joindate' : 30-05-2022,
+ 'enddate' : 15-06-2023
+})
+
+// Salary
+
+db.Salary.insert({
+ 'id' : 1, 
+ 'empid' : 01,
+ 'month' : 5,
+ 'year' : 2022,
+ 'amount' : 50000,
+ orderDate : new ISODate("2021-01-15T06:31:15Z") 
+})
+
+// Update Department
+
+db.Department.updateMany({'name' : 'vatsal'},{$set : {'name' : 'kachhadiya'}})
+{ acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0 }
+
+// Update Employee
+
+db.Employee.updateMany({'name' : 'vatsal'},{$set : {'name' : 'kachhadiya'}})
+{ acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0 }
+
+// Update Salary
+
+db.Salary.updateMany({'amount' : 50000},{$set : {'amount' : 100000}})
+{ acknowledged: true,
+  insertedId: null,
+  matchedCount: 4,
+  modifiedCount: 4,
+  upsertedCount: 0 }
+
+// drop/delete Department collection
+
+db.Department.drop()
+true
+
+// delete one row Employee collection
+
+db.Employee.deleteOne({'empno':1})
+{ acknowledged: true, deletedCount: 1 }
+
+// delete many data Salary collection
+
+db.Salary.deleteMany({'amount':100000})
+{ acknowledged: true, deletedCount: 4 }
